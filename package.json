@@ -1,0 +1,7 @@
+{
+                    "name": "T3 Examples",
+                    "version": "1.0.0",
+                    "description": "My Next.js app",
+                    "scripts":{
+                        "dev": " echo 'y' | npx create-t3-app example-app --CI  --nextAuth --prisma --trpc && cd ./example-app  && rm ../package.json " }
+                }
