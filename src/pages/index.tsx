@@ -2,11 +2,11 @@ import { signIn, signOut, useSession } from "next-auth/react";
 import Head from "next/head";
 import Link from "next/link";
 
-import { api } from "utils/api";
 import styles from "./index.module.css";
+import { trpc } from "utils/trpc";
 
 export default function Home() {
-  const hello = api.post.hello.useQuery({ text: "from tRPC" });
+  const hello = trpc.post.hello.useQuery({ text: "from tRPC" });
 
   return (
     <>
@@ -59,7 +59,7 @@ export default function Home() {
 function AuthShowcase() {
   const { data: sessionData } = useSession();
 
-  const { data: secretMessage } = api.post.getSecretMessage.useQuery(
+  const { data: secretMessage } = trpc.post.getSecretMessage.useQuery(
     undefined, // no input
     { enabled: sessionData?.user !== undefined }
   );
