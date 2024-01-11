@@ -54,17 +54,17 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.AUTH0_CLIENT_SECRET || "",
       issuer: process.env.AUTH0_ISSUER || "",
     }),
-    GoogleProvider({
-      clientId: process.env.GOOGLE_ID || "",
-      clientSecret: process.env.GOOGLE_SECRET || "",
-      authorization: {
-        params: {
-          prompt: "consent",
-          access_type: "offline",
-          response_type: "code",
-        },
-      },
-    }),
+    // GoogleProvider({
+    //   clientId: process.env.GOOGLE_ID || "",
+    //   clientSecret: process.env.GOOGLE_SECRET || "",
+    //   authorization: {
+    //     params: {
+    //       prompt: "consent",
+    //       access_type: "offline",
+    //       response_type: "code",
+    //     },
+    //   },
+    // }),
     /**
      * ...add more providers here.
      *
