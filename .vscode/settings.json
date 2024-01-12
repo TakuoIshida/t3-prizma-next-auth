@@ -1,0 +1,27 @@
+{
+  "editor.wordWrap": "on",
+  "prettier.singleQuote": true,
+  "workbench.iconTheme": "vscode-icons",
+  "editor.formatOnPaste": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.formatOnType": true,
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#364ff1",
+    "titleBar.activeForeground": "#ffffff",
+    "activityBar.background": "#364ff1",
+    "activityBar.foreground": "#ffffff"
+  },
+  "cSpell.words": [
+    "NEXTAUTH",
+    "CLIENTVAR",
+    "sendgrid",
+    "usecase",
+    "interactor",
+    "superjson",
+    "TRPC"
+  ]
+}
