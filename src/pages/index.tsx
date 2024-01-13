@@ -1,13 +1,11 @@
-import { signIn, signOut, useSession } from "next-auth/react";
-import Head from "next/head";
-import Link from "next/link";
+import Link from 'next/link';
 
-import styles from "./index.module.css";
-import { trpc } from "utils/trpc";
-import { Suspense } from "react";
+import { Suspense } from 'react';
+import { trpc } from 'utils/trpc';
+import styles from './index.module.css';
 
 export default function Home() {
-  const hello = trpc.post.hello.useQuery({ text: "from tRPC" });
+  const hello = trpc.post.hello.useQuery({ text: 'from tRPC' });
 
   return (
     <>
@@ -42,11 +40,10 @@ export default function Home() {
           </div>
           <div className={styles.showcaseContainer}>
             <p className={styles.showcaseText}>
-              <Suspense fallback={"Loading..."}>
-                {hello.data ? hello.data.greeting : "Loading tRPC query..."}
+              <Suspense fallback={'Loading...'}>
+                {hello.data ? hello.data.greeting : 'Loading tRPC query...'}
               </Suspense>
             </p>
-            <AuthShowcase />
           </div>
         </div>
       </main>
@@ -54,26 +51,26 @@ export default function Home() {
   );
 }
 
-function AuthShowcase() {
-  const { data: sessionData } = useSession();
+// function AuthShowcase() {
+//   const { data: sessionData } = useSession();
 
-  const { data: secretMessage } = trpc.post.getSecretMessage.useQuery(
-    undefined, // no input
-    { enabled: sessionData?.user !== undefined }
-  );
+//   const { data: secretMessage } = trpc.post.getSecretMessage.useQuery(
+//     undefined, // no input
+//     { enabled: sessionData?.user !== undefined }
+//   );
 
-  return (
-    <div className={styles.authContainer}>
-      <p className={styles.showcaseText}>
-        {sessionData && <span>Logged in as {sessionData.user?.name}</span>}
-        {secretMessage && <span> - {secretMessage}</span>}
-      </p>
-      <button
-        className={styles.loginButton}
-        onClick={sessionData ? () => void signOut() : () => void signIn()}
-      >
-        {sessionData ? "Sign out" : "Sign in"}
-      </button>
-    </div>
-  );
-}
+//   return (
+//     <div className={styles.authContainer}>
+//       <p className={styles.showcaseText}>
+//         {sessionData && <span>Logged in as {sessionData.user?.name}</span>}
+//         {secretMessage && <span> - {secretMessage}</span>}
+//       </p>
+//       <button
+//         className={styles.loginButton}
+//         onClick={sessionData ? () => void signOut() : () => void signIn()}
+//       >
+//         {sessionData ? "Sign out" : "Sign in"}
+//       </button>
+//     </div>
+//   );
+// }
